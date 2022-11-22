@@ -6,4 +6,4 @@ kernel_inner = tfp.mcmc.HamiltonianMonteCarlo(
          step_size=0.03,
          num_leapfrog_steps=5)
 kernel = tfp.mcmc.DualAveragingStepSizeAdaptation(
-    inner_kernel=kernel_inner, num_adaptation_steps=int(num_burnin * 0.8))
+    inner_kernel=kernel_inner, num_adaptation_steps=int(num_burnin * 0.7))
