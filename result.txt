@@ -1,0 +1,9 @@
+init_state = dtype([2, 2, 2, 2])
+num_samples = 300
+num_burnin = 50
+kernel_inner = tfp.mcmc.HamiltonianMonteCarlo(
+         target_log_prob_fn=target_log_prob,
+         step_size=0.03,
+         num_leapfrog_steps=5)
+kernel = tfp.mcmc.DualAveragingStepSizeAdaptation(
+    inner_kernel=kernel_inner, num_adaptation_steps=int(num_burnin * 0.8))
